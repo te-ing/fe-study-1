@@ -1,20 +1,25 @@
+@use "../../../../assets/scss/config/constants/colors";
+
+$BACKGROUND: colors.$ROSE400;
+
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   height: 40px;
   padding: 4px 8px;
-  color: white;
+  color: colors.$WHITE;
   white-space: nowrap;
-  background-color: gray;
+  background-color: $BACKGROUND;
+  border: none;
 
   &:hover {
     /* stylelint-disable-next-line scss/no-global-function-names */
-    background-color: lighten(gray, 10%);
+    background-color: lighten($BACKGROUND, 10%);
   }
 
   &:active {
     /* stylelint-disable-next-line scss/no-global-function-names */
-    background-color: darken(gray, 10%);
+    background-color: darken($BACKGROUND, 10%);
   }
 }

@@ -1,12 +1,11 @@
 // Global styles
+@use "./constants/colors";
 @import "@assets/scss/config/base/reset";
 @import "@assets/scss/config/base/fonts";
-@use "@assets/scss/config/constants/colors";
 
 html,
 body {
   height: 100%;
-  background-color: colors.$PRIMARY;
 }
 
 #root {
