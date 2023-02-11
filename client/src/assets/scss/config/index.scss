@@ -1,0 +1,21 @@
+// Global styles
+@import "@assets/scss/config/base/reset";
+@import "@assets/scss/config/base/fonts";
+@use "@assets/scss/config/constants/colors";
+
+html,
+body {
+  height: 100%;
+  background-color: colors.$PRIMARY;
+}
+
+#root {
+  min-height: 100%;
+}
+
+body,
+button,
+input,
+textarea {
+  font-family: "Spoqa Han Sans Neo", sans-serif;
+}

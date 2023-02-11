@@ -1,0 +1,14 @@
+@use "../../../assets/scss/config/constants/colors";
+@import "../../../assets/scss/config/index";
+
+.title {
+  display: flex;
+  align-items: center;
+  width: auto;
+  font-weight: bold;
+  color: colors.$PRIMARY;
+
+  &Logo {
+    height: 100%;
+  }
+}

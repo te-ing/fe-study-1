@@ -1,0 +1,11 @@
+@use "../../../assets/scss/config/constants/colors";
+
+.wrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.image {
+  height: 100%;
+}

@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["./*"],
+      "@pages/*": ["./pages/*"],
+      "@components/*": ["./components/*"],
+      "@hooks/*": ["./hooks/*"],
+      "@utils/*": ["./utils/*"],
+      "@types/*": ["./types/*"],
+      "@api/*": ["./api/*"],
+      "@mixins": ["./assets/scss/config/constants/mixins/*"],
+      "@colors": ["./assets/scss/config/constants/colors.scss"],
+      "@assets": ["./assets/*"]
+    }
+  }
+}
