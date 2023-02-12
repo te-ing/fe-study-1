@@ -46,7 +46,9 @@ export default function Auth() {
           placeholder="비밀번호"
           className={styles.loginInput}
         />
-        <small role="alert">{errorMessage}</small>
+        <small role="alert" className={styles.error}>
+          {errorMessage}
+        </small>
         <DefaultButton type="submit" label="로그인" disabled={errorMessage !== ""} />
         <Link to="/register">회원가입</Link>
       </form>

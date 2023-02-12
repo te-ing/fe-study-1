@@ -2,7 +2,7 @@ import styles from "./Register.module.scss";
 import { DefaultButton } from "@components/common/Input";
 import { validRegisterForm } from "@utils/validate";
 import { FormEventHandler, ReactEventHandler, useState } from "react";
-import { userRegister } from "@/api/auth.api";
+import { userRegister } from "@api/auth.api";
 import { setItem } from "@utils/storage";
 import { useNavigate } from "react-router-dom";
 
@@ -55,7 +55,9 @@ export default function Register() {
           placeholder="비밀번호 확인"
           className={styles.loginInput}
         />
-        <small role="alert">{errorMessage}</small>
+        <small role="alert" className={styles.error}>
+          {errorMessage}
+        </small>
         <DefaultButton type="submit" label="회원가입" disabled={errorMessage !== ""} />
       </form>
     </div>

@@ -39,10 +39,10 @@
     padding: 4px 8px;
     border: 1px solid colors.$GRAY300;
     border-radius: 8px;
-
-    &Error {
-      border: 1px solid colors.$RED500;
-      box-shadow: 0 0 1px colors.$RED500;
-    }
   }
+}
+
+.error {
+  font-size: 14px;
+  color: colors.$RED500;
 }
