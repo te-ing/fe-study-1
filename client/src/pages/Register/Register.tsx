@@ -1,16 +1,25 @@
 import styles from "./Register.module.scss";
 import { DefaultButton } from "@components/common/Input";
-import { FormEventHandler, ReactEventHandler, useState } from "react";
-import { TRegisterForm } from "types/auth";
 import { validRegisterForm } from "@utils/validate";
+import { FormEventHandler, ReactEventHandler, useState } from "react";
+import { userRegister } from "@/api/auth.api";
+import { setItem } from "@utils/storage";
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
   const [inputValue, setInputValue] = useState({ email: "", password: "", passwordCheck: "" });
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const navigate = useNavigate();
 
-  const handleRegister: FormEventHandler<HTMLFormElement> = (e) => {
+  const handleRegister: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    console.log(inputValue);
+    const response = await userRegister(inputValue);
+    if (response.status === 200) {
+      setItem("token", response.data.token);
+      navigate("/");
+    } else {
+      alert(`회원가입에 실패했습니다.`);
+    }
   };
 
   const handleSubmitForm: ReactEventHandler<HTMLInputElement> = (e) => {

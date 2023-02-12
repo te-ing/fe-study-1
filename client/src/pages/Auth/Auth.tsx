@@ -1,6 +1,6 @@
 import styles from "./Auth.module.scss";
-import { DefaultButton } from "@components/common/Input";
 import { Link } from "react-router-dom";
+import { DefaultButton } from "@components/common/Input";
 
 export default function Auth() {
   return (
