@@ -5,10 +5,13 @@ import { FormEventHandler, ReactEventHandler, useState } from "react";
 import { validLoginForm } from "@utils/validate";
 import { userLogin } from "@/api/auth.api";
 import { setItem } from "@utils/storage";
+import { useDispatch } from "react-redux";
+import { setUserInfo } from "../../store/auth";
 
 export default function Auth() {
   const [inputValue, setInputValue] = useState({ email: "", password: "" });
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleLogin: FormEventHandler<HTMLFormElement> = async (e) => {
@@ -18,6 +21,7 @@ export default function Auth() {
       setErrorMessage(response.error);
     }
     setItem("token", response.token);
+    dispatch(setUserInfo({ email: inputValue.email }));
     navigate("/");
   };
 

@@ -11,7 +11,8 @@
       "@api/*": ["./api/*"],
       "@mixins": ["./assets/scss/config/constants/mixins/*"],
       "@colors": ["./assets/scss/config/constants/colors.scss"],
-      "@assets": ["./assets/*"]
+      "@assets": ["./assets/*"],
+      "@store": ["./store/*"]
     }
   }
 }
