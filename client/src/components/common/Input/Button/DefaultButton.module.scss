@@ -22,4 +22,8 @@ $BACKGROUND: colors.$ROSE400;
     /* stylelint-disable-next-line scss/no-global-function-names */
     background-color: darken($BACKGROUND, 10%);
   }
+
+  &:disabled {
+    background-color: colors.$GRAY300;
+  }
 }
