@@ -14,12 +14,12 @@ export default function Register() {
   const handleRegister: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     const response = await userRegister(inputValue);
-    if (response.status === 200) {
-      setItem("token", response.data.token);
-      navigate("/");
-    } else {
-      alert(`회원가입에 실패했습니다.`);
+    if (response.error) {
+      // eslint-disable-next-line no-alert
+      alert(response.error);
     }
+    setItem("token", response.token);
+    navigate("/");
   };
 
   const handleSubmitForm: ReactEventHandler<HTMLInputElement> = (e) => {
