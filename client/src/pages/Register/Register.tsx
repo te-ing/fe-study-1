@@ -16,14 +16,15 @@ export default function Register() {
 
   const handleRegister: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    const response = await userRegister(inputValue);
-    if (response.error) {
+    try {
+      const response = await userRegister(inputValue);
+      setItem("token", response.token);
+      dispatch(setUserInfo({ email: inputValue.email }));
+      navigate("/");
+    } catch (error) {
       // eslint-disable-next-line no-alert
-      alert(response.error);
+      alert(error);
     }
-    setItem("token", response.token);
-    dispatch(setUserInfo({ email: inputValue.email }));
-    navigate("/");
   };
 
   const handleSubmitForm: ReactEventHandler<HTMLInputElement> = (e) => {

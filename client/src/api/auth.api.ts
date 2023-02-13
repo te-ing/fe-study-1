@@ -1,8 +1,8 @@
+import { AxiosError, isAxiosError } from "axios";
 import { TLoginForm, TLoginResponse, TRegisterForm, TRegisterResponse } from "types/auth";
-import { TError } from "types/error";
 import { Axios } from "./base.api";
 
-export const userLogin = async (payload: TLoginForm): Promise<TLoginResponse & TError> => {
+export const userLogin = async (payload: TLoginForm): Promise<TLoginResponse> => {
   try {
     const { email, password } = payload;
     const { data } = await Axios.post("/users/login", {
@@ -10,15 +10,19 @@ export const userLogin = async (payload: TLoginForm): Promise<TLoginResponse & T
       password,
     });
     return data;
-  } catch {
-    return {
-      message: "",
-      token: "",
-      error: "로그인에 실패하였습니다.",
-    };
+  } catch (error) {
+    if (isAxiosError(error) && error.response?.data.details) {
+      throw Error(error.response?.data.details);
+    }
+    throw Error("오류가 발생했습니다.");
   }
+  // return {
+  //   message: "",
+  //   token: "",
+  //   error: "회원가입에 실패하였습니다.",
+  // };
 };
-export const userRegister = async (payload: TRegisterForm): Promise<TRegisterResponse & TError> => {
+export const userRegister = async (payload: TRegisterForm): Promise<TRegisterResponse> => {
   try {
     const { email, password } = payload;
     const { data } = await Axios.post("/users/create", {
@@ -26,11 +30,10 @@ export const userRegister = async (payload: TRegisterForm): Promise<TRegisterRes
       password,
     });
     return data;
-  } catch {
-    return {
-      message: "",
-      token: "",
-      error: "회원가입에 실패하였습니다.",
-    };
+  } catch (error) {
+    if (isAxiosError(error) && error.response?.data.details) {
+      throw Error(error.response?.data.details);
+    }
+    throw Error("오류가 발생했습니다.");
   }
 };

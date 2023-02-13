@@ -16,13 +16,14 @@ export default function Auth() {
 
   const handleLogin: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    const response = await userLogin(inputValue);
-    if (response.error) {
-      setErrorMessage(response.error);
+    try {
+      const response = await userLogin(inputValue);
+      setItem("token", response.token);
+      dispatch(setUserInfo({ email: inputValue.email }));
+      navigate("/");
+    } catch (error) {
+      setErrorMessage(String(error));
     }
-    setItem("token", response.token);
-    dispatch(setUserInfo({ email: inputValue.email }));
-    navigate("/");
   };
 
   const handleSubmitForm: ReactEventHandler<HTMLInputElement> = (e) => {
