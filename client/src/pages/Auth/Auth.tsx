@@ -3,10 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { DefaultButton } from "@components/common/Input";
 import { FormEventHandler, ReactEventHandler, useState } from "react";
 import { validLoginForm } from "@utils/validate";
-import { userLogin } from "@/api/auth.api";
+import { userLogin } from "@api/auth.api";
 import { setItem } from "@utils/storage";
 import { useDispatch } from "react-redux";
-import { setUserInfo } from "../../store/auth";
+import { setUserInfo } from "@store/auth";
 
 export default function Auth() {
   const [inputValue, setInputValue] = useState({ email: "", password: "" });

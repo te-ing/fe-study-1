@@ -2,7 +2,7 @@ import { removeItem } from "@utils/storage";
 import { DefaultButton } from "@components/common/Input";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { userInfos } from "../../store/auth";
+import { userInfos } from "@store/auth";
 
 function Main() {
   const navigate = useNavigate();

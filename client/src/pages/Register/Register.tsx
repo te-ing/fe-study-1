@@ -6,7 +6,7 @@ import { userRegister } from "@api/auth.api";
 import { setItem } from "@utils/storage";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setUserInfo } from "../../store/auth";
+import { setUserInfo } from "@store/auth";
 
 export default function Register() {
   const [inputValue, setInputValue] = useState({ email: "", password: "", passwordCheck: "" });
